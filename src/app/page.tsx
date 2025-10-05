@@ -51,7 +51,7 @@ export default function Home() {
             className="inline-block mb-4 px-4 py-2 bg-white bg-opacity-20 backdrop-blur-sm rounded-full"
             variants={itemVariants}
           >
-            <span className="text-sm font-semibold">🇳🇬 Built for Nigeria</span>
+            <span className="text-sm text-primary font-semibold">🇳🇬 Built for Nigeria</span>
           </motion.div>
 
           <motion.h1
@@ -83,7 +83,7 @@ export default function Home() {
                 href="/intern-interest"
                 className="inline-block bg-white text-primary px-8 py-4 rounded-xl font-semibold shadow-soft-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50"
               >
-                🎓 I&apos;m a Student
+                🎓 I&apos;m a student
               </Link>
             </motion.div>
             <motion.div
@@ -149,7 +149,7 @@ export default function Home() {
               <span className="text-2xl font-bold text-white">1</span>
             </div>
             <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-              For Students
+              Become a mentee
             </h3>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
               Create your profile, showcase your skills and projects, and get matched with companies seeking talented interns like you.

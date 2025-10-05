@@ -126,7 +126,7 @@ export default function InternInterest() {
             variants={itemVariants}
           >
             <span className="text-2xl">🎓</span>
-            <span className="text-primary font-semibold">For Students</span>
+            <span className="text-white font-semibold">For Students</span>
           </motion.div>
 
           <motion.h1

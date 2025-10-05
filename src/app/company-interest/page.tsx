@@ -105,7 +105,7 @@ export default function CompanyInterest() {
             variants={itemVariants}
           >
             <span className="text-2xl">🏢</span>
-            <span className="text-secondary font-semibold">For Companies</span>
+            <span className="text-white font-semibold">For Companies</span>
           </motion.div>
 
           <motion.h1

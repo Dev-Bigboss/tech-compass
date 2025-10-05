@@ -65,7 +65,7 @@ export default function Navbar() {
                     : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary"
                 }`}
               >
-                For Students
+                Become a mentee
               </Link>
             </motion.div>
             <motion.div variants={linkVariants}>
@@ -77,7 +77,7 @@ export default function Navbar() {
                     : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-secondary"
                 }`}
               >
-                For Companies
+                Become a Partner
               </Link>
             </motion.div>
           </motion.div>
