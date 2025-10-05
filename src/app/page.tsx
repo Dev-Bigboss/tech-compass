@@ -83,7 +83,7 @@ export default function Home() {
                 href="/intern-interest"
                 className="inline-block bg-white text-primary px-8 py-4 rounded-xl font-semibold shadow-soft-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50"
               >
-                🎓 I'm a Student
+                🎓 I&apos;m a Student
               </Link>
             </motion.div>
             <motion.div
@@ -94,7 +94,7 @@ export default function Home() {
                 href="/company-interest"
                 className="inline-block bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-primary transition-all duration-300"
               >
-                🏢 I'm a Company
+                🏢 I&apos;m a Company
               </Link>
             </motion.div>
           </motion.div>
@@ -173,7 +173,7 @@ export default function Home() {
               For Companies
             </h3>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-              Post internship opportunities, review qualified candidates, and connect with Nigeria's brightest emerging tech talents.
+              Post internship opportunities, review qualified candidates, and connect with Nigeria&apos;s brightest emerging tech talents.
             </p>
             <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
               <Link href="/company-interest" className="text-secondary font-semibold hover:underline">
@@ -194,7 +194,7 @@ export default function Home() {
               Build the Future
             </h3>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-              We bridge the gap between education and industry, empowering Nigeria's tech ecosystem one connection at a time.
+              We bridge the gap between education and industry, empowering Nigeria&apos;s tech ecosystem one connection at a time.
             </p>
             <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
               <span className="text-success font-semibold">Join the Movement ✨</span>

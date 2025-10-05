@@ -82,7 +82,7 @@ export default function InternInterest() {
 
       setSubmitStatus("success");
       toast.success(
-        "🎉 Application submitted successfully! We'll be in touch soon.",
+        "🎉 Application submitted successfully! We&apos;ll be in touch soon.",
         {
           position: "top-right",
           autoClose: 5000,
@@ -141,7 +141,7 @@ export default function InternInterest() {
             variants={itemVariants}
           >
             Join hundreds of ambitious Nigerian students connecting with top
-            tech companies. Fill out the form below and let's find your perfect
+            tech companies. Fill out the form below and let&apos;s find your perfect
             internship match!
           </motion.p>
         </motion.div>
@@ -165,7 +165,7 @@ export default function InternInterest() {
                 Quick Process
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Submit your application in under 5 minutes. We'll review and get
+                Submit your application in under 5 minutes. We&apos;ll review and get
                 back to you within 48 hours.
               </p>
             </motion.div>

@@ -69,7 +69,7 @@ export default function CompanyInterest() {
 
       setSubmitStatus("success");
       toast.success(
-        "🎉 Company registered successfully! We'll reach out soon.",
+        "🎉 Company registered successfully! We&apos;ll reach out soon.",
         {
           position: "top-right",
           autoClose: 5000,
@@ -173,10 +173,10 @@ export default function CompanyInterest() {
                 <span className="text-2xl">🌍</span>
               </div>
               <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
-                Impact Nigeria's Future
+                Impact Nigeria&apos;s Future
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Help build Nigeria's tech ecosystem by providing opportunities
+                Help build Nigeria&apos;s tech ecosystem by providing opportunities
                 for the next generation of innovators.
               </p>
             </motion.div>
@@ -294,7 +294,7 @@ export default function CompanyInterest() {
                     />
                   </svg>
                   <p className="text-success font-medium">
-                    Opportunity posted successfully! We'll connect you with
+                    Opportunity posted successfully! We&apos;ll connect you with
                     matching candidates soon.
                   </p>
                 </motion.div>
