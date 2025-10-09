@@ -198,7 +198,7 @@ export default function News() {
             animate="visible"
           >
             The inaugural Tech Compass event brought together over 200 students,
-            industry leaders, and tech enthusiasts to launch Nigeria's premier
+            industry leaders, and tech enthusiasts to launch Nigeria&apos;s premier
             platform for connecting university students with transformative
             internship opportunities.
           </motion.p>
@@ -259,7 +259,7 @@ export default function News() {
                   The KAAF Auditorium at the University of Ibadan was electric
                   with energy as over 200 ambitious students gathered for the
                   historic unveiling of Tech Compass. The event marked a
-                  significant milestone in Nigeria's tech education landscape,
+                  significant milestone in Nigeria&apos;s tech education landscape,
                   bringing together students eager to break into the tech
                   industry and seasoned professionals ready to share their
                   wisdom.
@@ -478,7 +478,7 @@ export default function News() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Don't Miss the Next Event!
+              Don&apos;t Miss the Next Event!
             </h2>
             <p className="text-xl mb-8 text-gray-100">
               Be part of the next Tech Compass event and connect with industry

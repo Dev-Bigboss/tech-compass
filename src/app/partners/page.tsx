@@ -173,7 +173,7 @@ export default function Partners() {
             initial="hidden"
             animate="visible"
           >
-            Together, we're building Nigeria's tech ecosystem by connecting
+            Together, we&apos;re building Nigeria&apos;s tech ecosystem by connecting
             talented students with industry-leading companies
           </motion.p>
 
@@ -215,7 +215,7 @@ export default function Partners() {
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Leading organizations that trust Tech Compass to connect them with
-              Nigeria's brightest tech talent
+              Nigeria&apos;s brightest tech talent
             </p>
           </motion.div>
 
@@ -305,7 +305,7 @@ export default function Partners() {
               Partnership Tiers
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Choose the partnership level that best fits your organization's
+              Choose the partnership level that best fits your organization&apos;s
               needs
             </p>
           </motion.div>
@@ -403,7 +403,7 @@ export default function Partners() {
                 icon: "🤝",
                 title: "Community Impact",
                 description:
-                  "Contribute to Nigeria's tech ecosystem by providing opportunities that shape the next generation of tech leaders",
+                  "Contribute to Nigeria&apos;s tech ecosystem by providing opportunities that shape the next generation of tech leaders",
               },
               {
                 icon: "📈",
@@ -451,7 +451,7 @@ export default function Partners() {
               Become a Partner Today
             </h2>
             <p className="text-xl mb-8 text-gray-100">
-              Join leading companies in shaping Nigeria's tech future and access
+              Join leading companies in shaping Nigeria&apos;s tech future and access
               exceptional talent
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">

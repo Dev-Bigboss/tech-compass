@@ -32,8 +32,8 @@ const testimonials = [
     role: "Software Engineering Intern",
     company: "TechCorp Nigeria",
     university: "University of Lagos",
-    image: "/testimonials/student1.jpg", // You'll need to add actual images
-    content: "Tech Compass connected me with an amazing internship opportunity at TechCorp. The experience I gained was invaluable, and I'm now a full-time software engineer there!",
+    image: "/testimonials/student1.jpg", // You&apos;ll need to add actual images
+    content: "Tech Compass connected me with an amazing internship opportunity at TechCorp. The experience I gained was invaluable, and I&apos;m now a full-time software engineer there!",
     rating: 5,
     category: "student"
   },
@@ -55,7 +55,7 @@ const testimonials = [
     company: "InnovateTech Ltd",
     university: "",
     image: "/testimonials/company1.jpg",
-    content: "We've hired 5 interns through Tech Compass and each one has been exceptional. The platform makes it incredibly easy to find talented, motivated students.",
+    content: "We&apos;ve hired 5 interns through Tech Compass and each one has been exceptional. The platform makes it incredibly easy to find talented, motivated students.",
     rating: 5,
     category: "company"
   },
@@ -130,7 +130,9 @@ export default function Testimonials() {
             initial="hidden"
             animate="visible"
           >
-            <span className="text-sm text-primary font-semibold">⭐ Success Stories</span>
+            <span className="text-sm text-primary font-semibold">
+              ⭐ Success Stories
+            </span>
           </motion.div>
 
           <motion.h1
@@ -148,7 +150,8 @@ export default function Testimonials() {
             initial="hidden"
             animate="visible"
           >
-            Real stories from students who found their dream internships and companies who discovered exceptional talent
+            Real stories from students who found their dream internships and
+            companies who discovered exceptional talent
           </motion.p>
 
           {/* Stats */}
@@ -164,7 +167,9 @@ export default function Testimonials() {
                 className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6"
                 variants={itemVariants}
               >
-                <div className="text-3xl text-primary md:text-4xl font-bold mb-2">{stat.value}</div>
+                <div className="text-3xl text-primary md:text-4xl font-bold mb-2">
+                  {stat.value}
+                </div>
                 <div className="text-sm text-gray-800">{stat.label}</div>
               </motion.div>
             ))}
@@ -243,7 +248,7 @@ export default function Testimonials() {
 
                 {/* Testimonial Content */}
                 <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                  "{testimonial.content}"
+                  &quot;{testimonial.content}&quot;
                 </p>
 
                 {/* User Info */}
@@ -259,8 +264,8 @@ export default function Testimonials() {
                       {testimonial.role}
                     </div>
                     <div className="text-xs text-primary font-medium">
-                      {testimonial.category === "student" 
-                        ? testimonial.university 
+                      {testimonial.category === "student"
+                        ? testimonial.university
                         : testimonial.company}
                     </div>
                   </div>
@@ -284,7 +289,8 @@ export default function Testimonials() {
               Ready to Write Your Success Story?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
-              Join hundreds of students and companies already building the future of Nigerian tech
+              Join hundreds of students and companies already building the
+              future of Nigerian tech
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
