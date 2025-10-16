@@ -51,7 +51,7 @@ export default function Home() {
             className="inline-block mb-4 px-4 py-2 bg-white bg-opacity-20 backdrop-blur-sm rounded-full"
             variants={itemVariants}
           >
-            <span className="text-sm text-primary font-semibold">🇳🇬 Built for Nigeria</span>
+            <span className="text-sm text-primary font-semibold">🇳🇬 Tech Compass</span>
           </motion.div>
 
           <motion.h1

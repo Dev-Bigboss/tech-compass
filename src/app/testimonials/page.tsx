@@ -55,7 +55,7 @@ const testimonials = [
     company: "InnovateTech Ltd",
     university: "",
     image: "/testimonials/company1.jpg",
-    content: "We&apos;ve hired 5 interns through Tech Compass and each one has been exceptional. The platform makes it incredibly easy to find talented, motivated students.",
+    content: "We have hired 5 interns through Tech Compass and each one has been exceptional. The platform makes it incredibly easy to find talented, motivated students.",
     rating: 5,
     category: "company"
   },

@@ -37,16 +37,23 @@ const speakers = [
     name: "Oluwatosin Adesua",
     title: "Senior System Engineer",
     company: "Interswitch Group",
-    image: "/speakers/adesua.jpg",
+    image: "/adesua.jpeg",
     bio: "Expert in enterprise system architecture and fintech solutions",
   },
   {
     name: "Dr. Khadijat Ladoja",
     title: "Founder & Pioneer",
     company: "Tech Compass",
-    image: "/speakers/ladoja.jpg",
+    image: "/Khadijat.jpg",
     bio: "Passionate about bridging the gap between education and industry",
   },
+  {
+    name: "Professor Onifade Olufade",
+    title: "Lecturer & Researcher",
+    company: "University of Ibadan",
+    image: "/Onifade.jpg",
+    bio: "Advocate for practical tech education and student empowerment",
+  }
 ];
 
 // Event sessions
@@ -141,7 +148,9 @@ export default function News() {
             initial="hidden"
             animate="visible"
           >
-            <span className="text-sm text-primary font-semibold">📰 Latest News</span>
+            <span className="text-sm text-primary font-semibold">
+              📰 Latest News
+            </span>
           </motion.div>
 
           <motion.h1
@@ -198,9 +207,9 @@ export default function News() {
             animate="visible"
           >
             The inaugural Tech Compass event brought together over 200 students,
-            industry leaders, and tech enthusiasts to launch Nigeria&apos;s premier
-            platform for connecting university students with transformative
-            internship opportunities.
+            industry leaders, and tech enthusiasts to launch Nigeria&apos;s
+            premier platform for connecting university students with
+            transformative internship opportunities.
           </motion.p>
         </div>
       </section>
@@ -259,9 +268,9 @@ export default function News() {
                   The KAAF Auditorium at the University of Ibadan was electric
                   with energy as over 200 ambitious students gathered for the
                   historic unveiling of Tech Compass. The event marked a
-                  significant milestone in Nigeria&apos;s tech education landscape,
-                  bringing together students eager to break into the tech
-                  industry and seasoned professionals ready to share their
+                  significant milestone in Nigeria&apos;s tech education
+                  landscape, bringing together students eager to break into the
+                  tech industry and seasoned professionals ready to share their
                   wisdom.
                 </p>
 
@@ -340,10 +349,16 @@ export default function News() {
                 whileHover={shouldReduceMotion ? {} : { y: -5 }}
               >
                 <div className="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-4 flex items-center justify-center text-white text-3xl font-bold">
-                  {speaker.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
+                  <Image
+                    src={speaker.image}
+                    alt={speaker.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                    width={96}
+                    height={96}
+                    className="w-24 h-24 rounded-full object-cover"
+                  />
                 </div>
                 <h3 className="text-xl font-bold mb-1 text-gray-900 dark:text-white">
                   {speaker.name}
@@ -434,37 +449,25 @@ export default function News() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {[1, 2, 3, 4, 5, 6].map((index) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => (
               <motion.div
                 key={index}
-                className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-300 flex items-center justify-center"
+                className="aspect-video rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-300"
                 variants={itemVariants}
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
               >
-                <div className="text-center p-6">
-                  <svg
-                    className="w-16 h-16 mx-auto text-gray-400 dark:text-gray-500 mb-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Event Photo {index}
-                  </p>
-                </div>
+                <Image
+                  src={`/gallery/${index}.jpg`}
+                  alt={`Event Photo ${index}`}
+                  width={800}
+                  height={600}
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
             ))}
           </motion.div>
 
-          <p className="text-center text-gray-500 dark:text-gray-400 mt-8">
-            📸 Add your event photos to:{" "}
-            <code className="text-primary">/public/gallery/</code>
-          </p>
+        
         </div>
       </section>
 
