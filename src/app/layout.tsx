@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     title: "Tech Compass",
     description:
       "Connecting Nigerian students with top internship opportunities",
-    url: "https://your-domain.com", // Replace with your domain
-    siteName: "Tech Compass",
+    url: "https://techcompass.org", 
+    siteName: "TechCompass",
     locale: "en_NG",
     type: "website",
   },
