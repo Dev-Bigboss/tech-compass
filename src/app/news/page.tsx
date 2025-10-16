@@ -30,7 +30,7 @@ const speakers = [
     name: "Olorunfemi Oluwaniran",
     title: "Chief Technical Officer",
     company: "AWA Bike",
-    image: "/speakers/oluwaniran.jpg",
+    image: "/olorunfemi.jpeg",
     bio: "Leading tech innovation in sustainable transportation",
   },
   {
