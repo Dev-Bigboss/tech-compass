@@ -243,8 +243,8 @@ export default function InternInterest() {
             variants={itemVariants}
           >
             Join hundreds of ambitious Nigerian students connecting with top
-            tech companies. Fill out the form below and let's find your perfect
-            internship match!
+            tech companies. Fill out the form below and let&apos;s find your
+            perfect internship match!
           </motion.p>
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

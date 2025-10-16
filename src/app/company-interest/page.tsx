@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import FormField from "@/components/FormField";
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -12,11 +13,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const companySchema = z.object({
-  companyName: z.string().min(1, "Company name is required").max(100),
-  contactEmail: z.string().email("Invalid email address"),
-  location: z.string().min(1, "Location is required"),
-  positions: z.string().optional(),
-  requirements: z.string().optional(),
+  name: z.string().min(1, "Company name is required").max(100),
+  description: z.string().min(1, "Description is required"),
+  address: z.string().min(1, "Address is required"),
+  contact: z.string().email("Invalid email address"),
+  availablePositions: z.string().optional(),
+  expectation: z.string().optional(),
 });
 
 type CompanyFormData = z.infer<typeof companySchema>;
@@ -40,10 +42,9 @@ const itemVariants = {
 
 export default function CompanyInterest() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
-    null
-  );
+  const [showModal, setShowModal] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const router = useRouter();
 
   const {
     register,
@@ -56,28 +57,42 @@ export default function CompanyInterest() {
 
   const onSubmit: SubmitHandler<CompanyFormData> = async (data) => {
     setIsSubmitting(true);
-    setSubmitStatus(null);
 
     try {
-      const response = await fetch("/api/company-interest", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const payload = {
+        name: data.name,
+        description: data.description,
+        address: data.address,
+        contact: data.contact,
+        availablePositions: data.availablePositions || "",
+        expectation: data.expectation || "",
+      };
 
-      if (!response.ok) throw new Error("Submission failed");
-
-      setSubmitStatus("success");
-      toast.success(
-        "🎉 Company registered successfully! We&apos;ll reach out soon.",
+      const response = await fetch(
+        "https://tech-compass.onrender.com/company",
         {
-          position: "top-right",
-          autoClose: 5000,
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
         }
       );
+
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      toast.success(
+        "🎉 Company registered successfully! We will reach out soon.",
+        {
+          position: "top-right",
+          autoClose: 3000,
+        }
+      );
+
+      setShowModal(true);
       reset();
     } catch (error) {
-      setSubmitStatus("error");
+      console.error(error);
       toast.error("❌ Error submitting. Please try again.", {
         position: "top-right",
       });
@@ -176,8 +191,8 @@ export default function CompanyInterest() {
                 Impact Nigeria&apos;s Future
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Help build Nigeria&apos;s tech ecosystem by providing opportunities
-                for the next generation of innovators.
+                Help build Nigeria&apos;s tech ecosystem by providing
+                opportunities for the next generation of innovators.
               </p>
             </motion.div>
           </motion.div>
@@ -197,19 +212,31 @@ export default function CompanyInterest() {
               <motion.div variants={itemVariants}>
                 <FormField
                   label="Company Name"
-                  name="companyName"
+                  name="name"
                   register={register}
-                  error={errors.companyName}
+                  error={errors.name}
                   placeholder="Acme Technologies Ltd"
                 />
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <FormField
-                  label="Contact Email"
-                  name="contactEmail"
+                  label="Company Description"
+                  name="description"
                   register={register}
-                  error={errors.contactEmail}
+                  error={errors.description}
+                  as="textarea"
+                  rows={3}
+                  placeholder="Tell us about your company, what you do, and your mission..."
+                />
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <FormField
+                  label="Contact Email"
+                  name="contact"
+                  register={register}
+                  error={errors.contact}
                   type="email"
                   placeholder="hr@acmetechnologies.com"
                 />
@@ -217,20 +244,20 @@ export default function CompanyInterest() {
 
               <motion.div variants={itemVariants}>
                 <FormField
-                  label="Location"
-                  name="location"
+                  label="Company Address"
+                  name="address"
                   register={register}
-                  error={errors.location}
-                  placeholder="Lagos, Nigeria"
+                  error={errors.address}
+                  placeholder="123 Tech Avenue, Victoria Island, Lagos, Nigeria"
                 />
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <FormField
                   label="Available Positions (comma-separated)"
-                  name="positions"
+                  name="availablePositions"
                   register={register}
-                  error={errors.positions}
+                  error={errors.availablePositions}
                   placeholder="Software Developer, Data Analyst, UI/UX Designer"
                 />
               </motion.div>
@@ -238,91 +265,24 @@ export default function CompanyInterest() {
               <motion.div variants={itemVariants}>
                 <FormField
                   label="Requirements & Expectations"
-                  name="requirements"
+                  name="expectation"
                   register={register}
-                  error={errors.requirements}
+                  error={errors.expectation}
                   as="textarea"
                   rows={5}
                   placeholder="e.g., Proficiency in Python and JavaScript, strong problem-solving skills, team player, passionate about technology..."
                 />
               </motion.div>
 
-              {isSubmitting && (
-                <motion.div
-                  className="flex justify-center items-center gap-2 mb-4 py-3 bg-secondary bg-opacity-5 rounded-xl"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="relative w-5 h-5">
-                    <div className="absolute w-5 h-5 border-2 border-secondary border-t-transparent rounded-full animate-spin"></div>
-                  </div>
-                  <span className="text-secondary font-medium">
-                    Submitting your opportunity...
-                  </span>
-                </motion.div>
-              )}
-
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-gradient-to-r from-secondary to-secondary-dark text-white py-4 rounded-xl font-semibold hover:from-secondary-dark hover:to-secondary transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-soft hover:shadow-soft-lg transform hover:-translate-y-0.5"
-                whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
-                whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
               >
                 {isSubmitting
                   ? "Submitting Opportunity..."
                   : "Post Opportunity 🚀"}
               </motion.button>
-
-              {submitStatus === "success" && (
-                <motion.div
-                  className="mt-4 p-4 bg-success bg-opacity-10 border border-success rounded-xl flex items-center gap-3"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <svg
-                    className="w-6 h-6 text-success flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <p className="text-success font-medium">
-                    Opportunity posted successfully! We&apos;ll connect you with
-                    matching candidates soon.
-                  </p>
-                </motion.div>
-              )}
-
-              {submitStatus === "error" && (
-                <motion.div
-                  className="mt-4 p-4 bg-error bg-opacity-10 border border-error rounded-xl flex items-center gap-3"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <svg
-                    className="w-6 h-6 text-error flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <p className="text-error font-medium">
-                    Error posting opportunity. Please try again.
-                  </p>
-                </motion.div>
-              )}
             </motion.form>
 
             <motion.div className="mt-6 text-center" variants={itemVariants}>
@@ -348,6 +308,30 @@ export default function CompanyInterest() {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Success Modal */}
+        {showModal && (
+          <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl max-w-sm w-full text-center">
+              <h2 className="text-2xl font-semibold mb-4 text-secondary">
+                🎉 Opportunity Posted!
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                Your company has been registered successfully. We&apos;ll start
+                matching you with talented candidates and reach out soon!
+              </p>
+              <button
+                onClick={() => {
+                  setShowModal(false);
+                  router.push("/");
+                }}
+                className="w-full bg-gradient-to-r from-secondary to-secondary-dark text-white py-3 rounded-xl font-semibold hover:from-secondary-dark hover:to-secondary transition-all"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        )}
       </div>
       <ToastContainer />
     </motion.div>

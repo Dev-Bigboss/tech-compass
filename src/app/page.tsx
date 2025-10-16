@@ -328,8 +328,8 @@ export default function Home() {
               <h3 className="font-bold mb-4">Contact</h3>
               <p className="text-gray-400">
                 Have questions? Reach out to us at<br />
-                <a href="mailto:hello@techcompass.ng" className="text-primary hover:underline">
-                  hello@techcompass.ng
+                <a href="mailto:info@techcompass.org" className="text-primary hover:underline">
+                  info@techcompass.org
                 </a>
               </p>
             </div>
