@@ -11,6 +11,7 @@ import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { tr } from "zod/locales";
 
 const internSchema = z.object({
   name: z.string().min(1, "Name is required").max(100),
@@ -20,6 +21,7 @@ const internSchema = z.object({
   levelOfStudy: z.string().min(1, "Level of study is required"),
   institution: z.string().min(1, "Institution is required"),
   skills: z.string().optional(),
+  trackOfInterest: z.string().min(1, "Track of interest is required"),
   linkedinProfile: z
     .string()
     .url("Invalid LinkedIn URL")
@@ -172,6 +174,7 @@ export default function InternInterest() {
         phone: data.phone,
         courseOfStudy: data.courseOfStudy,
         levelOfStudy: data.levelOfStudy,
+        track: data.trackOfInterest,
         institution: data.institution,
         resumeUrl,
         skills: data.skills || "",
@@ -377,6 +380,35 @@ export default function InternInterest() {
                   error={errors.levelOfStudy}
                   placeholder="300 Level"
                 />
+              </motion.div>
+              <motion.div variants={itemVariants}>
+                <label
+                  htmlFor="trackOfInterest"
+                  className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-200"
+                >
+                  Track of Interest
+                </label>
+                <select
+                  id="trackOfInterest"
+                  {...register("trackOfInterest")}
+                  defaultValue=""
+                  className={`w-full rounded-xl border-2 p-3 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition`}
+                >
+                  <option value="" disabled>
+                    Select your preferred track
+                  </option>
+                  <option value="Software Engineering">
+                    Software Engineering
+                  </option>
+                  <option value="Cyber Security">Cyber Security</option>
+                  <option value="Machine Learning">Machine Learning</option>
+                  <option value="Product Design">Product Design</option>
+                </select>
+                {errors.trackOfInterest && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.trackOfInterest.message}
+                  </p>
+                )}
               </motion.div>
 
               <motion.div variants={itemVariants}>
