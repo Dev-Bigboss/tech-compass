@@ -3,6 +3,7 @@
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
 import { z } from "zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -111,6 +112,23 @@ export default function InternInterest() {
       autoClose: 3000,
     });
   };
+
+    useEffect(() => {
+      const fetchStudents = async () => {
+        try {
+          const res = await fetch("https://tech-compass.onrender.com/student");
+          if (!res.ok) {
+            throw new Error("Failed to fetch students");
+          }
+          const data = await res.json();
+          console.log("📊 Students response:", data);
+        } catch (error) {
+          console.error("❌ Error fetching students:", error);
+        }
+      };
+
+      fetchStudents();
+    }, []);
 
   const handleResumeUpload = async () => {
     if (!resumeFile) {
